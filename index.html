@@ -724,36 +724,19 @@
 </div>
 
 <script>
-// Load wallpaper via fetch to bypass hotlink protection
+// Load local wallpaper
 (function() {
-  const url = 'https://w.wallhaven.cc/full/6l/wallhaven-6l27v6.jpg';
   const el = document.getElementById('wallpaper');
-  fetch(url, { mode: 'cors' })
-    .then(r => r.blob())
-    .then(blob => {
-      const blobUrl = URL.createObjectURL(blob);
-      el.style.backgroundImage = `url('${blobUrl}')`;
-      el.classList.add('loaded');
-    })
-    .catch(() => {
-      // fallback: try loading as img element
-      const img = new Image();
-      img.crossOrigin = 'anonymous';
-      img.onload = function() {
-        const canvas = document.createElement('canvas');
-        canvas.width = img.naturalWidth;
-        canvas.height = img.naturalHeight;
-        canvas.getContext('2d').drawImage(img, 0, 0);
-        el.style.backgroundImage = `url('${canvas.toDataURL()}')`;
-        el.classList.add('loaded');
-      };
-      img.onerror = () => {
-        // final fallback: dark gradient
-        el.style.background = 'linear-gradient(135deg, #0d0f1e 0%, #0a1628 50%, #0f0d1a 100%)';
-        el.classList.add('loaded');
-      };
-      img.src = url;
-    });
+  const img = new Image();
+  img.onload = function() {
+    el.style.backgroundImage = "url('bg.png')";
+    el.classList.add('loaded');
+  };
+  img.onerror = () => {
+    el.style.background = 'linear-gradient(135deg, #0d0f1e 0%, #0a1628 50%, #0f0d1a 100%)';
+    el.classList.add('loaded');
+  };
+  img.src = 'bg.png';
 })();
 
 const EXT = '<svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor"><path d="M13 11V3H5v1.5h5.44L3.22 11.72l1.06 1.06L11.5 5.56V11H13z"/></svg>';
