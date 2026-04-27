@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How to Turn Off Find My iPhone</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #141418;
+    --surface2: #1c1c22;
+    --border: #2a2a34;
+    --border-light: #333340;
+    --text: #f0f0f5;
+    --subtext: #8e8e9a;
+    --blue: #3b9eff;
+    --blue-dim: #1a2d45;
+    --blue-text: #7ec3ff;
+    --orange: #ff8c42;
+    --orange-dim: #2d1f0e;
+    --orange-text: #ffb07a;
+    --red: #ff5757;
+    --red-dim: #2d0f0f;
+    --red-text: #ff9090;
+    --green: #3ecf72;
+    --green-dim: #0d2418;
+    --green-text: #7de8a8;
+    --radius: 16px;
+    --radius-sm: 10px;
+    --shadow: 0 2px 20px rgba(0,0,0,0.4);
+    --shadow-hover: 0 6px 36px rgba(0,0,0,0.55);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; overflow-x: hidden; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding-bottom: 80px;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(160deg, #0d1525 0%, #0a0a0f 55%);
+    border-bottom: 1px solid var(--border);
+    padding: clamp(40px,8vw,64px) clamp(16px,5vw,32px) clamp(32px,6vw,52px);
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+  }
+  .hero-icon {
+    width: 88px; height: 88px;
+    margin: 0 auto 20px;
+    display: flex; align-items: center; justify-content: center;
+    filter: drop-shadow(0 8px 24px rgba(0,180,80,0.35));
+  }
+  .hero-icon svg { width: 100%; height: 100%; }
+  .hero h1 {
+    font-size: clamp(22px,5vw,34px);
+    font-weight: 600; letter-spacing: -0.5px;
+    margin-bottom: 10px; line-height: 1.2;
+  }
+  .hero p {
+    color: var(--subtext);
+    font-size: clamp(14px,2.5vw,16px);
+    max-width: 500px; margin: 0 auto 24px; line-height: 1.65;
+  }
+  .badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: rgba(140,80,255,0.15); color: #c49dff;
+    border: 1px solid rgba(140,80,255,0.3);
+    font-size: 13px; font-weight: 500;
+    padding: 7px 15px; border-radius: 100px;
+  }
+
+  /* STICKY NAV */
+  .nav-wrap {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(10,10,15,0.92);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    padding: 10px 14px;
+    display: flex; flex-wrap: wrap; gap: 7px;
+    justify-content: center;
+    width: 100%;
+  }
+  .nav-pill {
+    white-space: nowrap; flex-shrink: 0;
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 7px 13px; border-radius: 100px;
+    border: 1.5px solid var(--border-light);
+    background: var(--surface);
+    font-size: 12.5px; font-weight: 500; color: var(--subtext);
+    text-decoration: none; transition: border-color 0.15s, color 0.15s;
+  }
+  .nav-pill:hover { border-color: var(--blue); color: var(--blue-text); }
+  .nav-pill.warn { border-color: rgba(255,87,87,0.35); color: var(--red-text); background: var(--red-dim); }
+  .nav-pill.warn:hover { border-color: var(--red); }
+  @media (max-width: 600px) {
+    .nav-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      justify-items: stretch;
+    }
+    .nav-pill {
+      justify-content: center;
+      white-space: normal;
+      text-align: center;
+      font-size: 12px;
+      padding: 9px 8px;
+    }
+    .nav-pill.warn {
+      grid-column: 1 / -1;
+    }
+  }
+  .nav-pill {
+    white-space: nowrap; flex-shrink: 0;
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 7px 13px; border-radius: 100px;
+    border: 1.5px solid var(--border-light);
+    background: var(--surface);
+    font-size: 12.5px; font-weight: 500; color: var(--subtext);
+    text-decoration: none; transition: border-color 0.15s, color 0.15s;
+  }
+  .nav-pill:hover { border-color: var(--blue); color: var(--blue-text); }
+  .nav-pill.warn { border-color: rgba(255,87,87,0.35); color: var(--red-text); background: var(--red-dim); }
+  .nav-pill.warn:hover { border-color: var(--red); }
+
+  /* LAYOUT */
+  .container {
+    max-width: 740px; margin: 0 auto;
+    padding: clamp(24px,5vw,40px) clamp(12px,4vw,20px) 0;
+    display: flex; flex-direction: column; gap: 20px;
+  }
+
+  /* CARDS */
+  .card {
+    background: var(--surface); border-radius: var(--radius);
+    border: 1.5px solid var(--border); overflow: hidden;
+    box-shadow: var(--shadow); transition: box-shadow 0.2s, border-color 0.2s;
+  }
+  .card:hover { box-shadow: var(--shadow-hover); border-color: var(--border-light); }
+
+  .card-header {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: clamp(16px,3vw,22px) clamp(16px,3vw,24px) clamp(14px,2.5vw,18px);
+    border-bottom: 1px solid var(--border);
+    background: var(--surface2);
+  }
+  .method-num {
+    flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%;
+    background: var(--blue); color: #fff;
+    font-size: 15px; font-weight: 600;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 1px; box-shadow: 0 2px 10px rgba(59,158,255,0.35);
+  }
+  .method-num.orange { background: var(--orange); box-shadow: 0 2px 10px rgba(255,140,66,0.35); }
+  .method-num.gray   { background: #4a4a56; box-shadow: none; }
+  .method-num.red    { background: var(--red); box-shadow: 0 2px 10px rgba(255,87,87,0.35); }
+
+  .card-title { flex: 1; min-width: 0; }
+  .card-title h2 { font-size: clamp(15px,2.5vw,17px); font-weight: 600; margin-bottom: 4px; line-height: 1.3; }
+  .card-title p  { font-size: 13px; color: var(--subtext); line-height: 1.5; }
+  .tags { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 5px; }
+  .tag {
+    display: inline-flex; align-items: center;
+    font-size: 11px; font-weight: 500;
+    padding: 3px 9px; border-radius: 100px; border: 1px solid transparent;
+  }
+  .tag-green  { background: var(--green-dim);  color: var(--green-text);  border-color: rgba(62,207,114,0.2); }
+  .tag-orange { background: var(--orange-dim); color: var(--orange-text); border-color: rgba(255,140,66,0.2); }
+  .tag-blue   { background: var(--blue-dim);   color: var(--blue-text);   border-color: rgba(59,158,255,0.2); }
+  .tag-red    { background: var(--red-dim);    color: var(--red-text);    border-color: rgba(255,87,87,0.2); }
+
+  .card-body { padding: clamp(16px,3vw,22px) clamp(16px,3vw,24px); }
+
+  /* STEPS */
+  .steps { display: flex; flex-direction: column; gap: 14px; }
+  .step  { display: flex; align-items: flex-start; gap: 12px; }
+  .step-dot {
+    flex-shrink: 0; width: 7px; height: 7px;
+    border-radius: 50%; background: var(--blue); margin-top: 9px;
+  }
+  .step-dot.orange { background: var(--orange); }
+  .step-dot.gray   { background: #555562; }
+  .step-dot.red    { background: var(--red); }
+
+  .step-text { font-size: clamp(14px,2.2vw,15px); line-height: 1.65; color: var(--text); flex: 1; min-width: 0; }
+  .step-text .note {
+    display: block; font-size: 13px; color: var(--subtext);
+    margin-top: 6px; line-height: 1.6; font-style: italic;
+  }
+
+  /* PATH CHIPS */
+  .path { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; margin: 6px 0 2px; }
+  .path-step {
+    font-family: 'DM Mono', monospace; font-size: 12px;
+    background: #1e1e28; border: 1px solid var(--border-light);
+    padding: 3px 8px; border-radius: 6px;
+    color: var(--blue-text); font-weight: 500; white-space: nowrap;
+  }
+  .path-arrow { color: var(--subtext); font-size: 13px; }
+
+  /* INFO BOXES */
+  .xref {
+    margin-top: 16px; padding: 12px 15px;
+    background: var(--blue-dim); border-radius: var(--radius-sm);
+    border-left: 3px solid var(--blue);
+    font-size: 13px; color: var(--blue-text); line-height: 1.6;
+  }
+  .xref a { color: var(--blue-text); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+
+  .warn-box {
+    margin-top: 16px; padding: 13px 15px;
+    background: var(--red-dim); border-radius: var(--radius-sm);
+    border-left: 3px solid var(--red);
+    font-size: 13px; color: var(--red-text); line-height: 1.6;
+  }
+  .warn-box strong { color: var(--red); }
+
+  .info-box {
+    margin-top: 16px; padding: 12px 15px;
+    background: var(--green-dim); border-radius: var(--radius-sm);
+    border-left: 3px solid var(--green);
+    font-size: 13px; color: var(--green-text); line-height: 1.6;
+  }
+  .info-box a { color: var(--green-text); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+
+  /* OR DIVIDER */
+  .or-divider {
+    display: flex; align-items: center; gap: 10px;
+    margin: 18px 0; font-size: 11px; font-weight: 600;
+    color: var(--subtext); letter-spacing: 1px; text-transform: uppercase;
+  }
+  .or-divider::before, .or-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  .ext-link {
+    display: inline-flex; align-items: center; gap: 4px;
+    color: var(--blue-text); font-weight: 500;
+    text-decoration: underline; text-underline-offset: 2px; font-size: inherit;
+  }
+  .ext-link:hover { color: var(--blue); }
+
+  .option-label {
+    font-size: 12px; font-weight: 600; color: var(--subtext);
+    text-transform: uppercase; letter-spacing: 0.7px; margin-bottom: 12px;
+  }
+
+  .sdp-card { border-color: rgba(255,87,87,0.3); }
+  .sdp-card .card-header { background: #1a0f0f; }
+
+  /* FOOTER */
+  .footer {
+    text-align: center; margin-top: 48px;
+    padding: 24px clamp(16px,5vw,32px) 0;
+    border-top: 1px solid var(--border);
+    font-size: 13px; color: var(--subtext); line-height: 1.75;
+  }
+  .footer strong { color: var(--text); }
+
+  /* RESPONSIVE */
+  @media (max-width: 480px) {
+    .card-header { gap: 10px; }
+    .method-num { width: 32px; height: 32px; font-size: 13px; }
+    .path-step { font-size: 11px; padding: 2px 7px; }
+    .tags { gap: 4px; }
+    .tag { font-size: 10.5px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-icon">
+    <svg width="68.810997mm" height="68.811195mm" viewBox="0 0 68.810997 68.811195" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient x1="445" y1="0" x2="445" y2="890" id="lg1" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#5CEF80" offset="0%"/><stop stop-color="#0ACD47" offset="100%"/>
+        </linearGradient>
+        <linearGradient x1="445" y1="0" x2="445" y2="890" id="lg2" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#82EA8D" offset="0%"/><stop stop-color="#4BD054" offset="100%"/>
+        </linearGradient>
+        <linearGradient x1="445" y1="0" x2="445" y2="890" id="lg5" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#5CEF80" offset="0%"/><stop stop-color="#2BBF5C" offset="100%"/>
+        </linearGradient>
+        <linearGradient x1="389.1308" y1="62.218155" x2="389.1308" y2="469.30261" id="lg8" gradientTransform="scale(1.143565,0.8744584)" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#00ACFF" stop-opacity="0" offset="0%"/><stop stop-color="#005EE5" offset="100%"/>
+        </linearGradient>
+        <circle id="c3" cx="445" cy="445" r="290"/>
+        <circle id="c6" cx="445" cy="445" r="445"/>
+        <circle id="c9" cx="445" cy="445" r="125"/>
+        <filter id="f4" x="-0.025" y="-0.025" width="1.05" height="1.055" filterUnits="objectBoundingBox">
+          <feOffset dx="0" dy="3" in="SourceAlpha" result="s1"/>
+          <feGaussianBlur stdDeviation="6" in="s1" result="b1"/>
+          <feComposite in="b1" in2="SourceAlpha" operator="out" result="b1"/>
+          <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0" in="b1"/>
+        </filter>
+        <filter id="f10" x="-0.168" y="-0.168" width="1.336" height="1.368" filterUnits="objectBoundingBox">
+          <feOffset dx="0" dy="4" in="SourceAlpha" result="s1"/>
+          <feGaussianBlur stdDeviation="5" in="s1" result="b1"/>
+          <feComposite in="b1" in2="SourceAlpha" operator="out" result="b1"/>
+          <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0" in="b1" result="m1"/>
+          <feOffset dx="0" dy="4" in="SourceAlpha" result="s2"/>
+          <feGaussianBlur stdDeviation="12.5" in="s2" result="b2"/>
+          <feComposite in="b2" in2="SourceAlpha" operator="out" result="b2"/>
+          <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.75 0" in="b2" result="m2"/>
+          <feMerge><feMergeNode in="m1"/><feMergeNode in="m2"/></feMerge>
+        </filter>
+        <mask id="mask7" fill="#ffffff"><use xlink:href="#c6"/></mask>
+      </defs>
+      <g transform="translate(-121.70525,-84.483665)">
+        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="matrix(0.06719843,0,0,0.06719843,121.70525,84.483665)">
+          <rect fill="none" x="0" y="0" width="1023.9971" height="1024" rx="215.91597" ry="215.91597"/>
+          <g transform="translate(67,67)">
+            <circle stroke="url(#lg2)" stroke-width="3" fill="url(#lg1)" cx="445" cy="445" r="443.5"/>
+            <g>
+              <use fill="#000000" fill-opacity="1" filter="url(#f4)" xlink:href="#c3"/>
+              <use fill-opacity="0.25" fill="#373737" fill-rule="evenodd" style="mix-blend-mode:overlay" xlink:href="#c3"/>
+              <circle stroke-opacity="0.25" stroke="#ffffff" stroke-width="18" cx="445" cy="445" r="281"/>
+            </g>
+            <g>
+              <use fill="url(#lg5)" opacity="0" xlink:href="#c6"/>
+              <polygon stroke="#37f251" stroke-width="5" fill="url(#lg8)" mask="url(#mask7)" points="445.5,445 155,-67 735,-67"/>
+            </g>
+            <g>
+              <use fill="#000000" fill-opacity="1" filter="url(#f10)" xlink:href="#c9"/>
+              <circle stroke="#0061db" stroke-width="43" fill="#007aff" fill-rule="evenodd" cx="445" cy="445" r="103.5"/>
+              <circle stroke="#ffffff" stroke-width="38" cx="445" cy="445" r="106"/>
+            </g>
+          </g>
+        </g>
+      </g>
+    </svg>
+  </div>
+  <h1>Turning Off Find My iPhone</h1>
+  <p>A step-by-step guide for disabling Find My before your device repair. Choose the method that works best for your situation.</p>
+  <span class="badge">
+    <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm.75 10.5h-1.5v-5h1.5v5zm0-6.5h-1.5V3.5h1.5V5z"/></svg>
+    Required before your Asurion repair calibration
+  </span>
+</div>
+
+<!-- STICKY NAV -->
+<div class="nav-wrap">
+  <a class="nav-pill" href="#method1">
+    <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M2 2h12v12H2V2zm1 1v10h10V3H3zm1.5 2h7v1h-7V5zm0 3h7v1h-7V8zm0 3h4v1h-4v-1z"/></svg>
+    Method 1: Settings
+  </a>
+  <a class="nav-pill" href="#method2">
+    <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 1a6 6 0 1 1 0 12A6 6 0 0 1 8 2zm-.5 3.5h1V9h-1V5.5zm0 4.5h1v1.5h-1V10z"/></svg>
+    Method 2: Find My App
+  </a>
+  <a class="nav-pill" href="#method3">
+    <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M1 3h14v10H1V3zm1 1v8h12V4H2zm2 2h8v1H4V6zm0 3h5v1H4V9z"/></svg>
+    Method 3: iCloud.com
+  </a>
+  <a class="nav-pill" href="#forgot">
+    <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 1a6 6 0 1 1 0 12A6 6 0 0 1 8 2zM8 4.5C6.6 4.5 5.5 5.6 5.5 7h1C6.5 6.2 7.2 5.5 8 5.5s1.5.7 1.5 1.5c0 .6-.3 1-.8 1.4L8 9.1V10h1v-.5l.5-.4c.7-.6 1-1.3 1-2.1C10.5 5.6 9.4 4.5 8 4.5zM7.5 11v1.5h1V11h-1z"/></svg>
+    Forgot Password
+  </a>
+  <a class="nav-pill warn" href="#sdp">
+    <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1L1 14h14L8 1zm0 2.4L13.3 13H2.7L8 3.4zM7.5 7h1v3h-1V7zm0 4h1v1.5h-1V11z"/></svg>
+    Stolen Device Protection
+  </a>
+</div>
+
+<div class="container">
+
+  <!-- METHOD 1 -->
+  <div class="card" id="method1">
+    <div class="card-header">
+      <div class="method-num">1</div>
+      <div class="card-title">
+        <h2>Through Settings</h2>
+        <p>The quickest option if Stolen Device Protection is not enabled on your device.</p>
+        <div class="tags">
+          <span class="tag tag-green">Easiest &amp; Fastest</span>
+          <span class="tag tag-orange">No Stolen Device Protection needed</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="steps">
+        <div class="step">
+          <div class="step-dot"></div>
+          <div class="step-text">Open the <strong>Settings</strong> app and tap your name at the top.</div>
+        </div>
+        <div class="step">
+          <div class="step-dot"></div>
+          <div class="step-text">
+            Navigate through:
+            <div class="path">
+              <span class="path-step">iCloud</span>
+              <span class="path-arrow">›</span>
+              <span class="path-step">Find My</span>
+              <span class="path-arrow">›</span>
+              <span class="path-step">Find My iPhone</span>
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-dot"></div>
+          <div class="step-text">Toggle <strong>Find My iPhone</strong> off. You will be asked to enter your Apple ID password to confirm.</div>
+        </div>
+      </div>
+      <div class="xref">
+        <strong>Have Stolen Device Protection turned on?</strong> This method will still work but Apple will enforce you to disable Stolen Device Protection and include a security delay before the toggle takes effect. To skip the wait entirely, use <a href="#method2">Method 2</a> or <a href="#method3">Method 3</a> instead. To fully disable Stolen Device Protection first, see the <a href="#sdp">Stolen Device Protection section</a> at the bottom of this page.
+      </div>
+    </div>
+  </div>
+
+  <!-- METHOD 2 -->
+  <div class="card" id="method2">
+    <div class="card-header">
+      <div class="method-num orange">2</div>
+      <div class="card-title">
+        <h2>Through the Find My App</h2>
+        <p>Works even with Stolen Device Protection on. No security delay required.</p>
+        <div class="tags">
+          <span class="tag tag-blue">Works with Stolen Device Protection</span>
+          <span class="tag tag-green">No Security Delay</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="steps">
+        <div class="step">
+          <div class="step-dot orange"></div>
+          <div class="step-text">Open the <strong>Find My</strong> app on your iPhone or any other Apple device signed into the same iCloud account.</div>
+        </div>
+        <div class="step">
+          <div class="step-dot orange"></div>
+          <div class="step-text">Tap the <strong>Devices</strong> tab at the bottom of the screen.</div>
+        </div>
+        <div class="step">
+          <div class="step-dot orange"></div>
+          <div class="step-text">Select <strong>This iPhone</strong>, or whichever device needs the repair if you are on a different Apple device signed into the same account.</div>
+        </div>
+        <div class="step">
+          <div class="step-dot orange"></div>
+          <div class="step-text">
+            Scroll down and tap <strong>Remove This Device</strong>.
+            <span class="note">If Stolen Device Protection is enabled, tapping Remove This Device will trigger a follow-up prompt that says <strong>"Prepare This Device for Repair"</strong> — tap that to confirm and complete the process. If Stolen Device Protection is off, the device will simply be removed right away without that extra step. Either way, you are good to go.</span>
+          </div>
+        </div>
+      </div>
+      <div class="info-box">
+        Once your repair and calibration are done, your device will relink to your iCloud account automatically. Nothing is permanently removed from your account.
+      </div>
+    </div>
+  </div>
+
+  <!-- METHOD 3 -->
+  <div class="card" id="method3">
+    <div class="card-header">
+      <div class="method-num gray">3</div>
+      <div class="card-title">
+        <h2>Through iCloud.com</h2>
+        <p>Works from any browser on any device. Good if you prefer not to use the Find My app.</p>
+        <div class="tags">
+          <span class="tag tag-blue">Works with Stolen Device Protection</span>
+          <span class="tag tag-blue">Any browser, any device</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="steps">
+        <div class="step">
+          <div class="step-dot gray"></div>
+          <div class="step-text">
+            Open any browser and go to <a class="ext-link" href="https://icloud.com" target="_blank">icloud.com <svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor"><path d="M13 11V3H5v1.5h5.44L3.22 11.72l1.06 1.06L11.5 5.56V11H13z"/></svg></a>.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-dot gray"></div>
+          <div class="step-text">
+            Sign in with your Apple ID and password.
+            <span class="note">If you are on a device that already has Face ID or a passcode set up, Apple may offer a Passkey sign-in so you do not have to type your password. Either option works.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-dot gray"></div>
+          <div class="step-text">From the main app grid, click <strong>Find My</strong>, then open the <strong>Devices</strong> tab.</div>
+        </div>
+        <div class="step">
+          <div class="step-dot gray"></div>
+          <div class="step-text">
+            Select the device that needs to be removed, then click <strong>Remove This Device</strong>.
+            <span class="note">If Stolen Device Protection is on, clicking Remove This Device will bring up a <strong>"Prepare This Device for Repair"</strong> confirmation before it goes through. If SDP is off, the device will be removed right away without that extra step. Both are completely normal and your repair will proceed either way.</span>
+          </div>
+        </div>
+      </div>
+      <div class="xref">
+        <strong>Do not remember your Apple ID password?</strong> See the <a href="#forgot">Forgot Password section</a> below for ways to reset it directly from your device or through Apple's website.
+      </div>
+    </div>
+  </div>
+
+  <!-- FORGOT PASSWORD -->
+  <div class="card" id="forgot">
+    <div class="card-header">
+      <div class="method-num gray">
+        <svg width="17" height="17" viewBox="0 0 16 16" fill="white"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 2.5C6.6 3.5 5.5 4.6 5.5 6h1C6.5 5.2 7.2 4.5 8 4.5s1.5.7 1.5 1.5c0 .6-.3 1-.8 1.4L8 8.1V9h1v-.5l.5-.4c.7-.6 1-1.3 1-2.1C10.5 4.6 9.4 3.5 8 3.5zM7.5 10v1.5h1V10h-1z"/></svg>
+      </div>
+      <div class="card-title">
+        <h2>Forgot Your Apple ID Password?</h2>
+        <p>Two ways to reset it. The on-device option is almost always the simplest place to start.</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="option-label">Option A — Reset directly on the device</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-dot gray"></div>
+          <div class="step-text">
+            Go to Settings, tap your name, then navigate to:
+            <div class="path">
+              <span class="path-step">Sign In &amp; Security</span>
+              <span class="path-arrow">›</span>
+              <span class="path-step">Change Password</span>
+            </div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-dot gray"></div>
+          <div class="step-text">The phone will verify your identity with Face ID or your passcode and then let you set a new Apple ID password without needing to remember the old one.</div>
+        </div>
+      </div>
+
+      <div class="or-divider">or</div>
+
+      <p class="option-label">Option B — Reset via Apple's website</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-dot gray"></div>
+          <div class="step-text">
+            Visit <a class="ext-link" href="https://iforgot.apple.com" target="_blank">iforgot.apple.com <svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor"><path d="M13 11V3H5v1.5h5.44L3.22 11.72l1.06 1.06L11.5 5.56V11H13z"/></svg></a> and enter your Apple ID email to begin the account recovery process.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-dot gray"></div>
+          <div class="step-text">Follow Apple's prompts to verify your identity and create a new password.</div>
+        </div>
+      </div>
+
+      <div class="warn-box">
+        <strong>Heads up:</strong> In some situations Apple may require you to wait up to 24 hours before allowing you to proceed with account recovery. This is an Apple security measure and is outside of anyone's control. If this happens, let your technician know as soon as possible so they can plan accordingly.
+      </div>
+    </div>
+  </div>
+
+  <!-- STOLEN DEVICE PROTECTION -->
+  <div class="card sdp-card" id="sdp">
+    <div class="card-header">
+      <div class="method-num red">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="white"><path d="M8 1L1 14h14L8 1zm0 2.4L13.3 13H2.7L8 3.4zM7.5 7h1v3h-1V7zm0 4h1v1.5h-1V11z"/></svg>
+      </div>
+      <div class="card-title">
+        <h2>Disabling Stolen Device Protection</h2>
+        <p>Only needed if you want to use Method 1 and currently have Stolen Device Protection enabled.</p>
+        <div class="tags">
+          <span class="tag tag-red">One-Hour Delay — Cannot Be Skipped</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="warn-box" style="margin-top:0; margin-bottom:18px;">
+        <strong>The one-hour security delay is mandatory and cannot be bypassed.</strong> Any time you attempt to disable Stolen Device Protection, Apple requires a full hour to pass before the change takes effect. There is no shortcut. You do not have to sit staring at your screen the entire time, but you must come back and confirm before the timer reaches zero. If the timer hits zero before you confirm, it resets completely and you will have to start over. Apple built it this way on purpose to make it genuinely difficult for someone to disable after stealing your phone.
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-dot red"></div>
+          <div class="step-text">
+            Open Settings and go to:
+            <div class="path">
+              <span class="path-step">Face ID &amp; Passcode</span>
+            </div>
+            Enter your device passcode when prompted.
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-dot red"></div>
+          <div class="step-text">Scroll down to <strong>Stolen Device Protection</strong> and tap <strong>Turn Off Protection</strong>.</div>
+        </div>
+        <div class="step">
+          <div class="step-dot red"></div>
+          <div class="step-text">
+            Verify with Face ID or your passcode. The one-hour countdown begins immediately.
+            <span class="note">You can go about your day, but set a reminder to come back before the timer ends. If it runs out before you confirm, you have to start the whole process over.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-dot red"></div>
+          <div class="step-text">Once the timer completes, return to the same screen and confirm the action one final time. Stolen Device Protection will then be off and you can proceed with <a href="#method1" style="color:var(--blue-text);font-weight:600;">Method 1</a>.</div>
+        </div>
+      </div>
+      <div class="info-box">
+        <strong>Want to skip all of this?</strong> <a href="#method2">Method 2</a> and <a href="#method3">Method 3</a> both work with Stolen Device Protection still on and require no waiting at all.
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>Still have questions?</strong> Your technician is happy to help.<br>
+  You can also manage your appointment anytime at
+  <a class="ext-link" href="https://asurion.com" target="_blank" style="font-size:13px;">asurion.com <svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor"><path d="M13 11V3H5v1.5h5.44L3.22 11.72l1.06 1.06L11.5 5.56V11H13z"/></svg></a>
+  <br><br>
+  <span style="font-size:12px; opacity:0.5;">Prepared by your local Asurion Remote Tech</span>
+</div>
+
+</body>
+</html>
