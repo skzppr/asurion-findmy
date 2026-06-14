@@ -285,6 +285,7 @@
 
   .card-header { display: flex; align-items: flex-start; gap: 14px; padding: clamp(16px,3vw,22px) clamp(16px,3vw,24px) clamp(14px,2.5vw,18px); border-bottom: 1px solid var(--border); background: var(--surface2); backdrop-filter: var(--blur); -webkit-backdrop-filter: var(--blur); }
   .method-num { flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%; background: var(--blue); color: #fff; font-size: 15px; font-weight: 600; display: flex; align-items: center; justify-content: center; margin-top: 1px; box-shadow: 0 2px 10px rgba(59,158,255,0.35); }
+  .method-num.green  { background: var(--green); box-shadow: 0 2px 10px rgba(62,207,114,0.35); }
   .method-num.orange { background: var(--orange); box-shadow: 0 2px 10px rgba(255,140,66,0.35); }
   .method-num.gray   { background: #4a4a56; box-shadow: none; }
   .method-num.red    { background: var(--red); box-shadow: 0 2px 10px rgba(255,87,87,0.35); }
@@ -305,6 +306,7 @@
   .steps { display: flex; flex-direction: column; gap: 14px; }
   .step  { display: flex; align-items: flex-start; gap: 12px; }
   .step-dot { flex-shrink: 0; width: 7px; height: 7px; border-radius: 50%; background: var(--blue); margin-top: 9px; }
+  .step-dot.green  { background: var(--green); }
   .step-dot.orange { background: var(--orange); }
   .step-dot.gray   { background: #555562; }
   .step-dot.red    { background: var(--red); }
@@ -447,7 +449,7 @@
   <div class="drawer-title" data-i18n="nav-label">Quick Links</div>
   <a class="drawer-pill" href="#method1" onclick="closeDrawer()">
     <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M2 2h12v12H2V2zm1 1v10h10V3H3zm1.5 2h7v1h-7V5zm0 3h7v1h-7V8zm0 3h4v1h-4v-1z"/></svg>
-    <span data-i18n="nav-m1">Method 1: Settings</span>
+    <span data-i18n="nav-m1">Method 1: iCloud.com</span>
   </a>
   <a class="drawer-pill" href="#method2" onclick="closeDrawer()">
     <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 1a6 6 0 1 1 0 12A6 6 0 0 1 8 2zm-.5 3.5h1V9h-1V5.5zm0 4.5h1v1.5h-1V10z"/></svg>
@@ -455,7 +457,7 @@
   </a>
   <a class="drawer-pill" href="#method3" onclick="closeDrawer()">
     <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M1 3h14v10H1V3zm1 1v8h12V4H2zm2 2h8v1H4V6zm0 3h5v1H4V9z"/></svg>
-    <span data-i18n="nav-m3">Method 3: iCloud.com</span>
+    <span data-i18n="nav-m3">Method 3: Settings</span>
   </a>
   <a class="drawer-pill" href="#forgot" onclick="closeDrawer()">
     <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 1a6 6 0 1 1 0 12A6 6 0 0 1 8 2zM8 4.5C6.6 4.5 5.5 5.6 5.5 7h1C6.5 6.2 7.2 5.5 8 5.5s1.5.7 1.5 1.5c0 .6-.3 1-.8 1.4L8 9.1V10h1v-.5l.5-.4c.7-.6 1-1.3 1-2.1C10.5 5.6 9.4 4.5 8 4.5zM7.5 11v1.5h1V11h-1z"/></svg>
@@ -471,7 +473,7 @@
 <div class="nav-wrap">
   <a class="nav-pill" href="#method1">
     <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M2 2h12v12H2V2zm1 1v10h10V3H3zm1.5 2h7v1h-7V5zm0 3h7v1h-7V8zm0 3h4v1h-4v-1z"/></svg>
-    <span data-i18n="nav-m1">Method 1: Settings</span>
+    <span data-i18n="nav-m1">Method 1: iCloud.com</span>
   </a>
   <a class="nav-pill" href="#method2">
     <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 1a6 6 0 1 1 0 12A6 6 0 0 1 8 2zm-.5 3.5h1V9h-1V5.5zm0 4.5h1v1.5h-1V10z"/></svg>
@@ -479,7 +481,7 @@
   </a>
   <a class="nav-pill" href="#method3">
     <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M1 3h14v10H1V3zm1 1v8h12V4H2zm2 2h8v1H4V6zm0 3h5v1H4V9z"/></svg>
-    <span data-i18n="nav-m3">Method 3: iCloud.com</span>
+    <span data-i18n="nav-m3">Method 3: Settings</span>
   </a>
   <a class="nav-pill" href="#forgot">
     <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 1a6 6 0 1 1 0 12A6 6 0 0 1 8 2zM8 4.5C6.6 4.5 5.5 5.6 5.5 7h1C6.5 6.2 7.2 5.5 8 5.5s1.5.7 1.5 1.5c0 .6-.3 1-.8 1.4L8 9.1V10h1v-.5l.5-.4c.7-.6 1-1.3 1-2.1C10.5 5.6 9.4 4.5 8 4.5zM7.5 11v1.5h1V11h-1z"/></svg>
@@ -496,42 +498,44 @@
   <!-- METHOD 1 -->
   <div class="card" id="method1">
     <div class="card-header">
-      <div class="method-num">1</div>
+      <div class="method-num green">1</div>
       <div class="card-title">
-        <h2 data-i18n="m1-title">Through Settings</h2>
-        <p data-i18n="m1-sub">The quickest option if Stolen Device Protection is not enabled on your device.</p>
+        <h2 data-i18n="m1-title">Through iCloud.com</h2>
+        <p data-i18n="m1-sub">Preferred for most repairs. On the iPhone being repaired, Face ID or the device passcode can sign you in without typing your Apple ID password.</p>
         <div class="tags">
-          <span class="tag tag-green" data-i18n="m1-tag1">Easiest &amp; Fastest</span>
-          <span class="tag tag-orange" data-i18n="m1-tag2">No Stolen Device Protection needed</span>
+          <span class="tag tag-green" data-i18n="m1-tag1">Preferred</span>
+          <span class="tag tag-green" data-i18n="m1-tag2">Quickest &amp; Easiest</span>
+          <span class="tag tag-blue" data-i18n="m1-tag3">No Apple ID Password</span>
         </div>
       </div>
     </div>
     <div class="card-body">
       <div class="steps">
         <div class="step">
-          <div class="step-dot"></div>
-          <div class="step-text" data-i18n-html="m1-step1">Open the <strong>Settings</strong> app and tap your name at the top.</div>
+          <div class="step-dot green"></div>
+          <div class="step-text" data-i18n-html="m1-step1">On the iPhone being repaired, open Safari or any browser and go to <a class="ext-link" href="https://icloud.com" target="_blank">icloud.com <svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor"><path d="M13 11V3H5v1.5h5.44L3.22 11.72l1.06 1.06L11.5 5.56V11H13z"/></svg></a>.</div>
         </div>
         <div class="step">
-          <div class="step-dot"></div>
+          <div class="step-dot green"></div>
           <div class="step-text">
-            <span data-i18n="m1-step2-pre">Navigate through:</span>
-            <div class="path">
-              <span class="path-step" data-i18n="path-icloud">iCloud</span>
-              <span class="path-arrow">›</span>
-              <span class="path-step" data-i18n="path-findmy">Find My</span>
-              <span class="path-arrow">›</span>
-              <span class="path-step" data-i18n="path-findmy-iphone">Find My iPhone</span>
-            </div>
+            <span data-i18n-html="m1-step2">Tap <strong>Sign In</strong>, then approve with Face ID or enter the device passcode when prompted.</span>
+            <span class="note" data-i18n="m1-note2">This uses the passkey on that iPhone, so you usually do not need to type the Apple ID password.</span>
           </div>
         </div>
         <div class="step">
-          <div class="step-dot"></div>
-          <div class="step-text" data-i18n-html="m1-step3">Toggle <strong>Find My iPhone</strong> off. You will be asked to enter your Apple ID password to confirm.</div>
+          <div class="step-dot green"></div>
+          <div class="step-text" data-i18n-html="m1-step3">From the iCloud app grid, open <strong>Find My</strong>, then open the <strong>Devices</strong> tab.</div>
+        </div>
+        <div class="step">
+          <div class="step-dot green"></div>
+          <div class="step-text">
+            <span data-i18n-html="m1-step4">Select the iPhone being repaired, then choose <strong>Remove This Device</strong> or <strong>Prepare This Device for Repair</strong>.</span>
+            <span class="note" data-i18n-html="m1-note4">Confirm the repair prompt. When the process finishes, look for the <strong>"Ready for Repair"</strong> banner. That means Find My is temporarily off for the repair.</span>
+          </div>
         </div>
       </div>
       <div class="xref" data-i18n-html="m1-xref">
-        <strong>Have Stolen Device Protection turned on?</strong> This method will still work but Apple will enforce you to disable Stolen Device Protection and include a security delay before the toggle takes effect. To skip the wait entirely, use <a href="#method2">Method 2</a> or <a href="#method3">Method 3</a> instead. To fully disable Stolen Device Protection first, see the <a href="#sdp">Stolen Device Protection section</a> at the bottom of this page.
+        <strong>Using the same iPhone is the key.</strong> If you sign in from a different device, Apple may ask for the Apple ID password. On the iPhone being repaired, Face ID or the passcode is usually the fastest path.
       </div>
     </div>
   </div>
@@ -567,7 +571,7 @@
           <div class="step-dot orange"></div>
           <div class="step-text">
             <span data-i18n-html="m2-step4">Scroll down and tap <strong>Remove This Device</strong>.</span>
-            <span class="note" data-i18n-html="m2-note4">If Stolen Device Protection is enabled, tapping Remove This Device will trigger a follow-up prompt that says <strong>"Prepare This Device for Repair"</strong> — tap that to confirm and complete the process. If Stolen Device Protection is off, the device will simply be removed right away without that extra step. Either way, you are good to go.</span>
+            <span class="note" data-i18n-html="m2-note4">If you see <strong>"Prepare This Device for Repair"</strong>, tap it to confirm. When Apple shows the <strong>"Ready for Repair"</strong> banner, Find My is temporarily off for the repair. If the device is removed without that extra prompt, that is normal too.</span>
           </div>
         </div>
       </div>
@@ -580,11 +584,11 @@
     <div class="card-header">
       <div class="method-num gray">3</div>
       <div class="card-title">
-        <h2 data-i18n="m3-title">Through iCloud.com</h2>
-        <p data-i18n="m3-sub">Works from any browser on any device. Good if you prefer not to use the Find My app.</p>
+        <h2 data-i18n="m3-title">Through Settings</h2>
+        <p data-i18n="m3-sub">Use this only if iCloud.com or the Find My app are not an option. It requires your Apple ID password and may run into a security delay.</p>
         <div class="tags">
-          <span class="tag tag-blue" data-i18n="m3-tag1">Works with Stolen Device Protection</span>
-          <span class="tag tag-blue" data-i18n="m3-tag2">Any browser, any device</span>
+          <span class="tag tag-orange" data-i18n="m3-tag1">Requires Apple ID Password</span>
+          <span class="tag tag-red" data-i18n="m3-tag2">Possible Security Delay</span>
         </div>
       </div>
     </div>
@@ -592,28 +596,34 @@
       <div class="steps">
         <div class="step">
           <div class="step-dot gray"></div>
-          <div class="step-text" data-i18n-html="m3-step1">Open any browser and go to <a class="ext-link" href="https://icloud.com" target="_blank">icloud.com <svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor"><path d="M13 11V3H5v1.5h5.44L3.22 11.72l1.06 1.06L11.5 5.56V11H13z"/></svg></a>.</div>
+          <div class="step-text" data-i18n-html="m3-step1">Open the <strong>Settings</strong> app and tap your name at the top.</div>
         </div>
         <div class="step">
           <div class="step-dot gray"></div>
           <div class="step-text">
-            <span data-i18n="m3-step2">Sign in with your Apple ID and password.</span>
-            <span class="note" data-i18n="m3-note2">If you are on a device that already has Face ID or a passcode set up, Apple may offer a Passkey sign-in so you do not have to type your password. Either option works.</span>
+            <span data-i18n="m3-step2">Navigate through:</span>
+            <div class="path">
+              <span class="path-step" data-i18n="path-icloud">iCloud</span>
+              <span class="path-arrow">›</span>
+              <span class="path-step" data-i18n="path-findmy">Find My</span>
+              <span class="path-arrow">›</span>
+              <span class="path-step" data-i18n="path-findmy-iphone">Find My iPhone</span>
+            </div>
           </div>
         </div>
         <div class="step">
           <div class="step-dot gray"></div>
-          <div class="step-text" data-i18n-html="m3-step3">From the main app grid, click <strong>Find My</strong>, then open the <strong>Devices</strong> tab.</div>
+          <div class="step-text" data-i18n-html="m3-step3">Toggle <strong>Find My iPhone</strong> off. You will be asked to enter your Apple ID password to confirm.</div>
         </div>
         <div class="step">
           <div class="step-dot gray"></div>
           <div class="step-text">
-            <span data-i18n-html="m3-step4">Select the device that needs to be removed, then click <strong>Remove This Device</strong>.</span>
-            <span class="note" data-i18n-html="m3-note4">If Stolen Device Protection is on, clicking Remove This Device will bring up a <strong>"Prepare This Device for Repair"</strong> confirmation before it goes through. If SDP is off, the device will be removed right away without that extra step. Both are completely normal and your repair will proceed either way.</span>
+            <span data-i18n-html="m3-step4">If Apple asks you to turn off <strong>Stolen Device Protection</strong> first, follow the delay steps below before trying the Settings toggle again.</span>
+            <span class="note" data-i18n="m3-note4">This is why Settings is listed last.</span>
           </div>
         </div>
       </div>
-      <div class="xref" data-i18n-html="m3-xref"><strong>Do not remember your Apple ID password?</strong> See the <a href="#forgot">Forgot Password section</a> below for ways to reset it directly from your device or through Apple's website.</div>
+      <div class="xref" data-i18n-html="m3-xref"><strong>Need the fastest path?</strong> Go back to <a href="#method1">Method 1: iCloud.com</a> on the iPhone being repaired to sign in with Face ID or the device passcode instead.</div>
     </div>
   </div>
 
@@ -671,7 +681,7 @@
       </div>
       <div class="card-title">
         <h2 data-i18n="sdp-title">Disabling Stolen Device Protection</h2>
-        <p data-i18n="sdp-sub">Only needed if you want to use Method 1 and currently have Stolen Device Protection enabled.</p>
+        <p data-i18n="sdp-sub">Only needed if you want to use Method 3 and currently have Stolen Device Protection enabled.</p>
         <div class="tags">
           <span class="tag tag-red" data-i18n="sdp-tag">One-Hour Delay — Cannot Be Skipped</span>
         </div>
@@ -705,10 +715,10 @@
         </div>
         <div class="step">
           <div class="step-dot red"></div>
-          <div class="step-text" data-i18n-html="sdp-step4">Once the timer completes, return to the same screen and confirm the action one final time. Stolen Device Protection will then be off and you can proceed with <a href="#method1" style="color:var(--blue-text);font-weight:600;">Method 1</a>.</div>
+          <div class="step-text" data-i18n-html="sdp-step4">Once the timer completes, return to the same screen and confirm the action one final time. Stolen Device Protection will then be off and you can proceed with <a href="#method3" style="color:var(--blue-text);font-weight:600;">Method 3</a>.</div>
         </div>
       </div>
-      <div class="info-box" data-i18n-html="sdp-info"><strong>Want to skip all of this?</strong> <a href="#method2">Method 2</a> and <a href="#method3">Method 3</a> both work with Stolen Device Protection still on and require no waiting at all.</div>
+      <div class="info-box" data-i18n-html="sdp-info"><strong>Want to skip all of this?</strong> <a href="#method1">Method 1: iCloud.com</a> and <a href="#method2">Method 2: Find My app</a> both work with Stolen Device Protection still on and require no waiting at all.</div>
     </div>
   </div>
 
@@ -745,17 +755,20 @@ const T = {
   en: {
     'page-title':'How to Turn Off Find My iPhone',
     'hero-h1':'Turning Off Find My iPhone',
-    'hero-p':'A step-by-step guide for disabling Find My before your device repair. Choose the method that works best for your situation.',
+    'hero-p':'A step-by-step guide for disabling Find My before your device repair. Start with iCloud.com for the fastest repair-ready path.',
     'hero-badge':'Required before your Asurion repair calibration',
-    'nav-m1':'Method 1: Settings','nav-m2':'Method 2: Find My App','nav-m3':'Method 3: iCloud.com',
+    'nav-m1':'Method 1: iCloud.com','nav-m2':'Method 2: Find My App','nav-m3':'Method 3: Settings',
     'nav-forgot':'Forgot Password','nav-sdp':'Stolen Device Protection',
-    'm1-title':'Through Settings',
-    'm1-sub':'The quickest option if Stolen Device Protection is not enabled on your device.',
-    'm1-tag1':'Easiest & Fastest','m1-tag2':'No Stolen Device Protection needed',
-    'm1-step1':'Open the <strong>Settings</strong> app and tap your name at the top.',
-    'm1-step2-pre':'Navigate through:',
-    'm1-step3':'Toggle <strong>Find My iPhone</strong> off. You will be asked to enter your Apple ID password to confirm.',
-    'm1-xref':'<strong>Have Stolen Device Protection turned on?</strong> This method will still work but Apple will enforce you to disable Stolen Device Protection and include a security delay before the toggle takes effect. To skip the wait entirely, use <a href="#method2">Method 2</a> or <a href="#method3">Method 3</a> instead. To fully disable Stolen Device Protection first, see the <a href="#sdp">Stolen Device Protection section</a> at the bottom of this page.',
+    'm1-title':'Through iCloud.com',
+    'm1-sub':'Preferred for most repairs. On the iPhone being repaired, Face ID or the device passcode can sign you in without typing your Apple ID password.',
+    'm1-tag1':'Preferred','m1-tag2':'Quickest & Easiest','m1-tag3':'No Apple ID Password',
+    'm1-step1':'On the iPhone being repaired, open Safari or any browser and go to <a class="ext-link" href="https://icloud.com" target="_blank">icloud.com '+EXT+'</a>.',
+    'm1-step2':'Tap <strong>Sign In</strong>, then approve with Face ID or enter the device passcode when prompted.',
+    'm1-note2':'This uses the passkey on that iPhone, so you usually do not need to type the Apple ID password.',
+    'm1-step3':'From the iCloud app grid, open <strong>Find My</strong>, then open the <strong>Devices</strong> tab.',
+    'm1-step4':'Select the iPhone being repaired, then choose <strong>Remove This Device</strong> or <strong>Prepare This Device for Repair</strong>.',
+    'm1-note4':'Confirm the repair prompt. When the process finishes, look for the <strong>"Ready for Repair"</strong> banner. That means Find My is temporarily off for the repair.',
+    'm1-xref':'<strong>Using the same iPhone is the key.</strong> If you sign in from a different device, Apple may ask for the Apple ID password. On the iPhone being repaired, Face ID or the passcode is usually the fastest path.',
     'm2-title':'Through the Find My App',
     'm2-sub':'Works even with Stolen Device Protection on. No security delay required.',
     'm2-tag1':'Works with Stolen Device Protection','m2-tag2':'No Security Delay',
@@ -763,18 +776,17 @@ const T = {
     'm2-step2':'Tap the <strong>Devices</strong> tab at the bottom of the screen.',
     'm2-step3':'Select <strong>This iPhone</strong>, or whichever device needs the repair if you are on a different Apple device signed into the same account.',
     'm2-step4':'Scroll down and tap <strong>Remove This Device</strong>.',
-    'm2-note4':'If Stolen Device Protection is enabled, tapping Remove This Device will trigger a follow-up prompt that says <strong>"Prepare This Device for Repair"</strong> — tap that to confirm and complete the process. If Stolen Device Protection is off, the device will simply be removed right away without that extra step. Either way, you are good to go.',
+    'm2-note4':'If you see <strong>"Prepare This Device for Repair"</strong>, tap it to confirm. When Apple shows the <strong>"Ready for Repair"</strong> banner, Find My is temporarily off for the repair. If the device is removed without that extra prompt, that is normal too.',
     'm2-info':'Once your repair and calibration are done, your device will relink to your iCloud account automatically. Nothing is permanently removed from your account.',
-    'm3-title':'Through iCloud.com',
-    'm3-sub':'Works from any browser on any device. Good if you prefer not to use the Find My app.',
-    'm3-tag1':'Works with Stolen Device Protection','m3-tag2':'Any browser, any device',
-    'm3-step1':'Open any browser and go to <a class="ext-link" href="https://icloud.com" target="_blank">icloud.com '+EXT+'</a>.',
-    'm3-step2':'Sign in with your Apple ID and password.',
-    'm3-note2':'If you are on a device that already has Face ID or a passcode set up, Apple may offer a Passkey sign-in so you do not have to type your password. Either option works.',
-    'm3-step3':'From the main app grid, click <strong>Find My</strong>, then open the <strong>Devices</strong> tab.',
-    'm3-step4':'Select the device that needs to be removed, then click <strong>Remove This Device</strong>.',
-    'm3-note4':'If Stolen Device Protection is on, clicking Remove This Device will bring up a <strong>"Prepare This Device for Repair"</strong> confirmation before it goes through. If SDP is off, the device will be removed right away without that extra step. Both are completely normal and your repair will proceed either way.',
-    'm3-xref':'<strong>Do not remember your Apple ID password?</strong> See the <a href="#forgot">Forgot Password section</a> below for ways to reset it directly from your device or through Apple\'s website.',
+    'm3-title':'Through Settings',
+    'm3-sub':'Use this only if iCloud.com or the Find My app are not an option. It requires your Apple ID password and may run into a security delay.',
+    'm3-tag1':'Requires Apple ID Password','m3-tag2':'Possible Security Delay',
+    'm3-step1':'Open the <strong>Settings</strong> app and tap your name at the top.',
+    'm3-step2':'Navigate through:',
+    'm3-step3':'Toggle <strong>Find My iPhone</strong> off. You will be asked to enter your Apple ID password to confirm.',
+    'm3-step4':'If Apple asks you to turn off <strong>Stolen Device Protection</strong> first, follow the delay steps below before trying the Settings toggle again.',
+    'm3-note4':'This is why Settings is listed last.',
+    'm3-xref':'<strong>Need the fastest path?</strong> Go back to <a href="#method1">Method 1: iCloud.com</a> on the iPhone being repaired to sign in with Face ID or the device passcode instead.',
     'forgot-title':'Forgot Your Apple ID Password?',
     'forgot-sub':'Two ways to reset it. The on-device option is almost always the simplest place to start.',
     'forgot-optA':'Option A — Reset directly on the device',
@@ -785,15 +797,15 @@ const T = {
     'forgot-step4':"Follow Apple's prompts to verify your identity and create a new password.",
     'forgot-warn':'<strong>Heads up:</strong> In some situations Apple may require you to wait up to 24 hours before allowing you to proceed with account recovery. This is an Apple security measure and is outside of anyone\'s control. If this happens, let your technician know as soon as possible so they can plan accordingly.',
     'sdp-title':'Disabling Stolen Device Protection',
-    'sdp-sub':'Only needed if you want to use Method 1 and currently have Stolen Device Protection enabled.',
+    'sdp-sub':'Only needed if you want to use Method 3 and currently have Stolen Device Protection enabled.',
     'sdp-tag':'One-Hour Delay — Cannot Be Skipped',
     'sdp-warn':'<strong>The one-hour security delay is mandatory and cannot be bypassed.</strong> Any time you attempt to disable Stolen Device Protection, Apple requires a full hour to pass before the change takes effect. There is no shortcut. You do not have to sit staring at your screen the entire time, but you must come back and confirm before the timer reaches zero. If the timer hits zero before you confirm, it resets completely and you will have to start over. Apple built it this way on purpose to make it genuinely difficult for someone to disable after stealing your phone.',
     'sdp-step1':'Open Settings and go to:','sdp-step1b':'Enter your device passcode when prompted.',
     'sdp-step2':'Scroll down to <strong>Stolen Device Protection</strong> and tap <strong>Turn Off Protection</strong>.',
     'sdp-step3':'Verify with Face ID or your passcode. The one-hour countdown begins immediately.',
     'sdp-note3':'You can go about your day, but set a reminder to come back before the timer ends. If it runs out before you confirm, you have to start the whole process over.',
-    'sdp-step4':'Once the timer completes, return to the same screen and confirm the action one final time. Stolen Device Protection will then be off and you can proceed with <a href="#method1" style="color:var(--blue-text);font-weight:600;">Method 1</a>.',
-    'sdp-info':'<strong>Want to skip all of this?</strong> <a href="#method2">Method 2</a> and <a href="#method3">Method 3</a> both work with Stolen Device Protection still on and require no waiting at all.',
+    'sdp-step4':'Once the timer completes, return to the same screen and confirm the action one final time. Stolen Device Protection will then be off and you can proceed with <a href="#method3" style="color:var(--blue-text);font-weight:600;">Method 3</a>.',
+    'sdp-info':'<strong>Want to skip all of this?</strong> <a href="#method1">Method 1: iCloud.com</a> and <a href="#method2">Method 2: Find My app</a> both work with Stolen Device Protection still on and require no waiting at all.',
     'footer-q':'Still have questions?','footer-sub':'Your technician is happy to help.',
     'footer-manage':'You can also manage your appointment anytime at',
     'footer-credit':'Prepared by your local Asurion Remote Tech',
@@ -804,17 +816,20 @@ const T = {
   es: {
     'page-title':'Cómo apagar Buscar mi iPhone',
     'hero-h1':'Apagar "Buscar mi iPhone"',
-    'hero-p':'Una guía paso a paso para desactivar Buscar mi iPhone antes de reparar tu celular. Elige el método que mejor te funcione.',
+    'hero-p':'Una guía paso a paso para desactivar Buscar mi iPhone antes de reparar tu celular. Empieza con iCloud.com para llegar más rápido a la confirmación de reparación.',
     'hero-badge':'Necesario antes de la calibración del arreglo con Asurion',
-    'nav-m1':'Método 1: Ajustes','nav-m2':'Método 2: App Buscar','nav-m3':'Método 3: iCloud.com',
+    'nav-m1':'Método 1: iCloud.com','nav-m2':'Método 2: App Buscar','nav-m3':'Método 3: Ajustes',
     'nav-forgot':'Olvidé mi contraseña','nav-sdp':'Protección contra robo',
-    'm1-title':'Desde Ajustes',
-    'm1-sub':'La forma más rápida si no tienes activada la Protección contra robo en tu celular.',
-    'm1-tag1':'Lo más fácil y rápido','m1-tag2':'Sin Protección contra robo',
-    'm1-step1':'Abre <strong>Ajustes</strong> y toca tu nombre arriba.',
-    'm1-step2-pre':'Entra a:',
-    'm1-step3':'Apaga <strong>Buscar mi iPhone</strong>. Te va a pedir tu contraseña de Apple ID para confirmar.',
-    'm1-xref':'<strong>¿Tienes la Protección contra robo activada?</strong> Este método igual funciona, pero Apple te va a pedir que desactives la Protección contra robo primero y va a haber un tiempo de espera antes de que el cambio se aplique. Para saltarte la espera, usa el <a href="#method2">Método 2</a> o el <a href="#method3">Método 3</a>. Para desactivar la Protección contra robo primero, mira la <a href="#sdp">sección de Protección contra robo</a> al final de esta página.',
+    'm1-title':'Desde iCloud.com',
+    'm1-sub':'Método preferido para la mayoría de reparaciones. En el iPhone que se va a reparar, Face ID o el código del equipo pueden iniciar sesión sin escribir la contraseña de Apple ID.',
+    'm1-tag1':'Preferido','m1-tag2':'Más rápido y fácil','m1-tag3':'Sin contraseña de Apple ID',
+    'm1-step1':'En el iPhone que se va a reparar, abre Safari o cualquier navegador y entra a <a class="ext-link" href="https://icloud.com" target="_blank">icloud.com '+EXT+'</a>.',
+    'm1-step2':'Toca <strong>Iniciar sesión</strong>, luego confirma con Face ID o escribe el código del equipo cuando lo pida.',
+    'm1-note2':'Esto usa la llave de acceso de ese iPhone, así que normalmente no necesitas escribir la contraseña de Apple ID.',
+    'm1-step3':'En la pantalla principal de iCloud, abre <strong>Buscar</strong> y luego entra a <strong>Dispositivos</strong>.',
+    'm1-step4':'Selecciona el iPhone que se va a reparar, luego elige <strong>Eliminar este dispositivo</strong> o <strong>Preparar este dispositivo para reparación</strong>.',
+    'm1-note4':'Confirma el aviso de reparación. Cuando termine el proceso, busca el aviso <strong>"Ready for Repair"</strong>. Eso significa que Buscar está apagado temporalmente para la reparación.',
+    'm1-xref':'<strong>La clave es usar el mismo iPhone.</strong> Si inicias sesión desde otro dispositivo, Apple puede pedir la contraseña de Apple ID. En el iPhone que se va a reparar, Face ID o el código suele ser la forma más rápida.',
     'm2-title':'Desde la app Buscar',
     'm2-sub':'Funciona aunque tengas la Protección contra robo activada. Sin tiempo de espera.',
     'm2-tag1':'Funciona con Protección contra robo','m2-tag2':'Sin tiempo de espera',
@@ -822,18 +837,17 @@ const T = {
     'm2-step2':'Toca la pestaña <strong>Dispositivos</strong> abajo en la pantalla.',
     'm2-step3':'Selecciona <strong>Este iPhone</strong>, o el celular que hay que reparar si estás usando otro dispositivo.',
     'm2-step4':'Baja y toca <strong>Eliminar este dispositivo</strong>.',
-    'm2-note4':'Si tienes la Protección contra robo activada, al tocar Eliminar este dispositivo va a aparecer un mensaje que dice <strong>"Preparar para reparación"</strong> — tócalo para confirmar. Si no tienes la Protección activada, el dispositivo se elimina directo sin ese paso extra. De cualquier forma, estás listo.',
+    'm2-note4':'Si ves <strong>"Preparar este dispositivo para reparación"</strong>, tócalo para confirmar. Cuando Apple muestre el aviso <strong>"Ready for Repair"</strong>, Buscar está apagado temporalmente para la reparación. Si el dispositivo se elimina sin ese aviso extra, también es normal.',
     'm2-info':'Cuando terminen el arreglo y la calibración, tu celular se vuelve a conectar solo a tu cuenta de iCloud. No se borra nada de forma permanente.',
-    'm3-title':'Desde iCloud.com',
-    'm3-sub':'Funciona desde cualquier navegador en cualquier dispositivo. Buena opción si no quieres usar la app Buscar.',
-    'm3-tag1':'Funciona con Protección contra robo','m3-tag2':'Cualquier navegador, cualquier dispositivo',
-    'm3-step1':'Abre cualquier navegador y entra a <a class="ext-link" href="https://icloud.com" target="_blank">icloud.com '+EXT+'</a>.',
-    'm3-step2':'Inicia sesión con tu Apple ID y contraseña.',
-    'm3-note2':'Si estás en un celular que ya tiene Face ID o código, Apple puede dejarte entrar con Llave de acceso sin escribir tu contraseña. Los dos funcionan.',
-    'm3-step3':'En la pantalla principal de apps, toca <strong>Buscar</strong> y luego entra a <strong>Dispositivos</strong>.',
-    'm3-step4':'Selecciona el dispositivo que quieres quitar y toca <strong>Eliminar este dispositivo</strong>.',
-    'm3-note4':'Si tienes la Protección contra robo activada, al tocar Eliminar este dispositivo va a salir una confirmación que dice <strong>"Preparar para reparación"</strong>. Si no la tienes, se elimina directo. Los dos casos son normales y el arreglo sigue igual.',
-    'm3-xref':'<strong>¿No recuerdas tu contraseña de Apple ID?</strong> Mira la <a href="#forgot">sección de contraseña olvidada</a> abajo para ver cómo resetearla desde tu celular o desde la página de Apple.',
+    'm3-title':'Desde Ajustes',
+    'm3-sub':'Usa esto solo si iCloud.com o la app Buscar no son opción. Requiere la contraseña de Apple ID y puede activar una espera de seguridad.',
+    'm3-tag1':'Requiere contraseña de Apple ID','m3-tag2':'Posible espera de seguridad',
+    'm3-step1':'Abre <strong>Ajustes</strong> y toca tu nombre arriba.',
+    'm3-step2':'Entra a:',
+    'm3-step3':'Apaga <strong>Buscar mi iPhone</strong>. Te va a pedir tu contraseña de Apple ID para confirmar.',
+    'm3-step4':'Si Apple te pide apagar primero la <strong>Protección contra robo</strong>, sigue los pasos de espera abajo antes de intentar otra vez desde Ajustes.',
+    'm3-note4':'Por eso Ajustes aparece al final.',
+    'm3-xref':'<strong>¿Quieres la forma más rápida?</strong> Regresa al <a href="#method1">Método 1: iCloud.com</a> en el iPhone que se va a reparar para iniciar sesión con Face ID o el código del equipo.',
     'forgot-title':'¿Olvidaste tu contraseña de Apple ID?',
     'forgot-sub':'Hay dos formas de resetearla. La opción desde el celular casi siempre es la más fácil.',
     'forgot-optA':'Opción A — Resetear desde el celular',
@@ -844,15 +858,15 @@ const T = {
     'forgot-step4':'Sigue los pasos de Apple para verificar que eres tú y crear una contraseña nueva.',
     'forgot-warn':'<strong>Ojo:</strong> A veces Apple te pide esperar hasta 24 horas antes de poder continuar con la recuperación de cuenta. Es una medida de seguridad de Apple y no depende de nadie más. Si pasa, avísale a tu técnico lo antes posible.',
     'sdp-title':'Desactivar la Protección contra robo',
-    'sdp-sub':'Solo es necesario si quieres usar el Método 1 y tienes la Protección contra robo activada.',
+    'sdp-sub':'Solo es necesario si quieres usar el Método 3 y tienes la Protección contra robo activada.',
     'sdp-tag':'Espera de 1 hora — No se puede saltear',
     'sdp-warn':'<strong>La espera de seguridad de una hora es obligatoria y no se puede evitar.</strong> Cada vez que intentas desactivar la Protección contra robo, Apple requiere que pase una hora completa antes de que el cambio se aplique. No hay forma de saltársela. No tienes que quedarte con la pantalla abierta todo el tiempo, pero sí tienes que volver y confirmar antes de que el contador llegue a cero. Si llega a cero antes de que confirmes, se reinicia y toca empezar de nuevo. Apple lo hizo así a propósito para que sea difícil desactivarlo si te roban el celular.',
     'sdp-step1':'Abre Ajustes y entra a:','sdp-step1b':'Pon el código de tu celular cuando te lo pida.',
     'sdp-step2':'Baja hasta <strong>Protección contra robo</strong> y toca <strong>Desactivar protección</strong>.',
     'sdp-step3':'Confirma con Face ID o tu código. La cuenta regresiva de una hora empieza de una.',
     'sdp-note3':'Puedes seguir con tu día, pero pon un recordatorio para volver antes de que se acabe el tiempo. Si se acaba antes de confirmar, toca empezar todo de nuevo.',
-    'sdp-step4':'Cuando se acabe el tiempo, vuelve a la misma pantalla y confirma una última vez. La Protección contra robo se desactiva y puedes continuar con el <a href="#method1" style="color:var(--blue-text);font-weight:600;">Método 1</a>.',
-    'sdp-info':'<strong>¿Quieres evitar todo esto?</strong> El <a href="#method2">Método 2</a> y el <a href="#method3">Método 3</a> funcionan aunque tengas la Protección contra robo activada y no requieren ninguna espera.',
+    'sdp-step4':'Cuando se acabe el tiempo, vuelve a la misma pantalla y confirma una última vez. La Protección contra robo se desactiva y puedes continuar con el <a href="#method3" style="color:var(--blue-text);font-weight:600;">Método 3</a>.',
+    'sdp-info':'<strong>¿Quieres evitar todo esto?</strong> El <a href="#method1">Método 1: iCloud.com</a> y el <a href="#method2">Método 2: app Buscar</a> funcionan aunque tengas la Protección contra robo activada y no requieren ninguna espera.',
     'footer-q':'¿Tienes alguna duda?','footer-sub':'Tu técnico con gusto te ayuda.',
     'footer-manage':'También puedes manejar tu cita cuando quieras en',
     'footer-credit':'Preparado por tu técnico local de Asurion Remote Tech',
@@ -863,17 +877,20 @@ const T = {
   ar: {
     'page-title':'كيفية إيقاف تشغيل تحديد الموقع على iPhone',
     'hero-h1':'إيقاف تشغيل "تحديد موقع iPhone"',
-    'hero-p':'دليل خطوة بخطوة لتعطيل ميزة تحديد الموقع قبل إصلاح جهازك. اختر الطريقة الأنسب لحالتك.',
+    'hero-p':'دليل خطوة بخطوة لتعطيل ميزة تحديد الموقع قبل إصلاح جهازك. ابدأ بـ iCloud.com للوصول إلى حالة جاهز للإصلاح بأسرع طريقة.',
     'hero-badge':'مطلوب قبل معايرة إصلاح Asurion',
-    'nav-m1':'الطريقة 1: الإعدادات','nav-m2':'الطريقة 2: تطبيق تحديد الموقع','nav-m3':'الطريقة 3: iCloud.com',
+    'nav-m1':'الطريقة 1: iCloud.com','nav-m2':'الطريقة 2: تطبيق تحديد الموقع','nav-m3':'الطريقة 3: الإعدادات',
     'nav-forgot':'نسيت كلمة المرور','nav-sdp':'حماية الجهاز المسروق',
-    'm1-title':'عبر الإعدادات',
-    'm1-sub':'الخيار الأسرع إذا لم تكن حماية الجهاز المسروق مفعّلة على جهازك.',
-    'm1-tag1':'الأسهل والأسرع','m1-tag2':'لا تحتاج لحماية الجهاز المسروق',
-    'm1-step1':'افتح تطبيق <strong>الإعدادات</strong> واضغط على اسمك في الأعلى.',
-    'm1-step2-pre':'انتقل عبر:',
-    'm1-step3':'أوقف تشغيل <strong>تحديد موقع iPhone</strong>. سيُطلب منك إدخال كلمة مرور Apple ID للتأكيد.',
-    'm1-xref':'<strong>هل حماية الجهاز المسروق مفعّلة؟</strong> ستظل الطريقة تعمل، لكن Apple ستُلزمك بتعطيل الحماية أولاً مع تأخير أمني. لتجنب الانتظار، استخدم <a href="#method2">الطريقة 2</a> أو <a href="#method3">الطريقة 3</a>. لتعطيل الحماية أولاً، راجع <a href="#sdp">قسم حماية الجهاز المسروق</a> أدناه.',
+    'm1-title':'عبر iCloud.com',
+    'm1-sub':'الطريقة المفضلة لمعظم الإصلاحات. على جهاز iPhone المراد إصلاحه، يمكن لـ Face ID أو رمز مرور الجهاز تسجيل الدخول بدون كتابة كلمة مرور Apple ID.',
+    'm1-tag1':'المفضلة','m1-tag2':'الأسرع والأسهل','m1-tag3':'بدون كلمة مرور Apple ID',
+    'm1-step1':'على جهاز iPhone المراد إصلاحه، افتح Safari أو أي متصفح وانتقل إلى <a class="ext-link" href="https://icloud.com" target="_blank">icloud.com '+EXT+'</a>.',
+    'm1-step2':'اضغط على <strong>تسجيل الدخول</strong>، ثم وافق باستخدام Face ID أو أدخل رمز مرور الجهاز عند الطلب.',
+    'm1-note2':'يستخدم هذا مفتاح المرور على ذلك الـ iPhone، لذلك غالباً لن تحتاج إلى كتابة كلمة مرور Apple ID.',
+    'm1-step3':'من شبكة تطبيقات iCloud، افتح <strong>تحديد الموقع</strong>، ثم افتح تبويب <strong>الأجهزة</strong>.',
+    'm1-step4':'اختر جهاز iPhone المراد إصلاحه، ثم اختر <strong>إزالة هذا الجهاز</strong> أو <strong>تجهيز هذا الجهاز للإصلاح</strong>.',
+    'm1-note4':'أكّد رسالة الإصلاح. عند انتهاء العملية، ابحث عن شريط <strong>"Ready for Repair"</strong>. هذا يعني أن تحديد الموقع متوقف مؤقتاً للإصلاح.',
+    'm1-xref':'<strong>المهم هو استخدام نفس جهاز iPhone.</strong> إذا سجّلت الدخول من جهاز آخر، قد تطلب Apple كلمة مرور Apple ID. على جهاز iPhone المراد إصلاحه، يكون Face ID أو رمز المرور غالباً أسرع طريقة.',
     'm2-title':'عبر تطبيق تحديد الموقع',
     'm2-sub':'يعمل حتى مع تفعيل حماية الجهاز المسروق. بدون أي تأخير أمني.',
     'm2-tag1':'يعمل مع حماية الجهاز المسروق','m2-tag2':'بدون تأخير أمني',
@@ -881,18 +898,17 @@ const T = {
     'm2-step2':'اضغط على تبويب <strong>الأجهزة</strong> في أسفل الشاشة.',
     'm2-step3':'اختر <strong>هذا الـ iPhone</strong>، أو الجهاز الذي يحتاج للإصلاح إذا كنت على جهاز آخر.',
     'm2-step4':'انتقل للأسفل واضغط على <strong>إزالة هذا الجهاز</strong>.',
-    'm2-note4':'إذا كانت حماية الجهاز المسروق مفعّلة، فإن الضغط على إزالة هذا الجهاز سيُظهر رسالة تأكيد تقول <strong>"تجهيز هذا الجهاز للإصلاح"</strong> — اضغط عليها للمتابعة. إذا كانت الحماية معطّلة، سيُزال الجهاز مباشرة. في كلتا الحالتين أنت بخير.',
+    'm2-note4':'إذا ظهر لك <strong>"تجهيز هذا الجهاز للإصلاح"</strong>، فاضغط عليه للتأكيد. عندما تعرض Apple شريط <strong>"Ready for Repair"</strong>، تكون ميزة تحديد الموقع متوقفة مؤقتاً للإصلاح. إذا تمت إزالة الجهاز بدون هذه الرسالة الإضافية، فهذا طبيعي أيضاً.',
     'm2-info':'بعد انتهاء الإصلاح والمعايرة، سيرتبط جهازك تلقائياً بحساب iCloud. لا يُحذف شيء نهائياً من حسابك.',
-    'm3-title':'عبر iCloud.com',
-    'm3-sub':'يعمل من أي متصفح على أي جهاز. مناسب إذا كنت تفضّل عدم استخدام تطبيق تحديد الموقع.',
-    'm3-tag1':'يعمل مع حماية الجهاز المسروق','m3-tag2':'أي متصفح، أي جهاز',
-    'm3-step1':'افتح أي متصفح وانتقل إلى <a class="ext-link" href="https://icloud.com" target="_blank">icloud.com '+EXT+'</a>.',
-    'm3-step2':'سجّل الدخول باستخدام Apple ID وكلمة المرور.',
-    'm3-note2':'إذا كنت على جهاز يحتوي على Face ID أو رمز المرور، قد تعرض Apple تسجيل الدخول بمفتاح مرور بدلاً من كتابة كلمة المرور. كلا الخيارين يعملان.',
-    'm3-step3':'من شبكة التطبيقات الرئيسية، انقر على <strong>تحديد الموقع</strong> ثم افتح تبويب <strong>الأجهزة</strong>.',
-    'm3-step4':'اختر الجهاز المراد إزالته، ثم انقر على <strong>إزالة هذا الجهاز</strong>.',
-    'm3-note4':'إذا كانت حماية الجهاز المسروق مفعّلة، سيظهر تأكيد يقول <strong>"تجهيز هذا الجهاز للإصلاح"</strong>. إذا كانت معطّلة، سيُزال الجهاز مباشرة. كلتا الحالتين طبيعيتان.',
-    'm3-xref':'<strong>لا تتذكر كلمة مرور Apple ID؟</strong> راجع <a href="#forgot">قسم نسيت كلمة المرور</a> أدناه.',
+    'm3-title':'عبر الإعدادات',
+    'm3-sub':'استخدم هذه الطريقة فقط إذا لم يكن iCloud.com أو تطبيق تحديد الموقع خياراً متاحاً. تتطلب كلمة مرور Apple ID وقد تواجه تأخيراً أمنياً.',
+    'm3-tag1':'تتطلب كلمة مرور Apple ID','m3-tag2':'قد يوجد تأخير أمني',
+    'm3-step1':'افتح تطبيق <strong>الإعدادات</strong> واضغط على اسمك في الأعلى.',
+    'm3-step2':'انتقل عبر:',
+    'm3-step3':'أوقف تشغيل <strong>تحديد موقع iPhone</strong>. سيُطلب منك إدخال كلمة مرور Apple ID للتأكيد.',
+    'm3-step4':'إذا طلبت Apple إيقاف <strong>حماية الجهاز المسروق</strong> أولاً، فاتبع خطوات الانتظار أدناه قبل محاولة مفتاح الإعدادات مرة أخرى.',
+    'm3-note4':'لهذا السبب تظهر الإعدادات في النهاية.',
+    'm3-xref':'<strong>تريد الطريقة الأسرع؟</strong> ارجع إلى <a href="#method1">الطريقة 1: iCloud.com</a> على جهاز iPhone المراد إصلاحه لتسجيل الدخول باستخدام Face ID أو رمز مرور الجهاز.',
     'forgot-title':'نسيت كلمة مرور Apple ID؟',
     'forgot-sub':'طريقتان لإعادة تعيينها. الخيار المباشر على الجهاز هو الأبسط في الغالب.',
     'forgot-optA':'الخيار أ — إعادة التعيين مباشرة من الجهاز',
@@ -903,15 +919,15 @@ const T = {
     'forgot-step4':'اتبع تعليمات Apple للتحقق من هويتك وإنشاء كلمة مرور جديدة.',
     'forgot-warn':'<strong>تنبيه:</strong> في بعض الحالات قد تطلب Apple الانتظار حتى 24 ساعة قبل المتابعة. هذا إجراء أمني من Apple. إذا حدث ذلك، أبلغ فنيك في أقرب وقت.',
     'sdp-title':'تعطيل حماية الجهاز المسروق',
-    'sdp-sub':'مطلوب فقط إذا أردت استخدام الطريقة 1 وكانت حماية الجهاز المسروق مفعّلة.',
+    'sdp-sub':'مطلوب فقط إذا أردت استخدام الطريقة 3 وكانت حماية الجهاز المسروق مفعّلة.',
     'sdp-tag':'تأخير ساعة واحدة — لا يمكن تخطّيه',
     'sdp-warn':'<strong>تأخير الأمان لمدة ساعة إلزامي ولا يمكن تجاوزه.</strong> في كل مرة تحاول فيها تعطيل حماية الجهاز المسروق، تشترط Apple مرور ساعة كاملة. لا يوجد اختصار. لست مضطراً للجلوس أمام الشاشة طوال الوقت، لكن يجب عليك العودة والتأكيد قبل أن يصل العداد إلى الصفر. إذا انتهى قبل التأكيد، يُعاد ضبطه بالكامل. صمّمت Apple الأمر هكذا عمداً.',
     'sdp-step1':'افتح الإعدادات وانتقل إلى:','sdp-step1b':'أدخل رمز مرور جهازك عند المطالبة.',
     'sdp-step2':'انتقل للأسفل إلى <strong>حماية الجهاز المسروق</strong> واضغط على <strong>إيقاف الحماية</strong>.',
     'sdp-step3':'تحقق بـ Face ID أو رمز المرور. يبدأ العد التنازلي لساعة واحدة فوراً.',
     'sdp-note3':'يمكنك مواصلة يومك، لكن اضبط تذكيراً للعودة قبل انتهاء العداد. إذا انتهى قبل التأكيد، يجب عليك البدء من جديد.',
-    'sdp-step4':'بعد انتهاء العداد، ارجع إلى نفس الشاشة وأكّد الإجراء مرة أخيرة. ستُوقف الحماية ويمكنك المتابعة مع <a href="#method1" style="color:var(--blue-text);font-weight:600;">الطريقة 1</a>.',
-    'sdp-info':'<strong>تريد تخطّي كل هذا؟</strong> <a href="#method2">الطريقة 2</a> و<a href="#method3">الطريقة 3</a> تعملان مع تفعيل الحماية ولا تتطلبان أي انتظار.',
+    'sdp-step4':'بعد انتهاء العداد، ارجع إلى نفس الشاشة وأكّد الإجراء مرة أخيرة. ستُوقف الحماية ويمكنك المتابعة مع <a href="#method3" style="color:var(--blue-text);font-weight:600;">الطريقة 3</a>.',
+    'sdp-info':'<strong>تريد تخطّي كل هذا؟</strong> <a href="#method1">الطريقة 1: iCloud.com</a> و<a href="#method2">الطريقة 2: تطبيق تحديد الموقع</a> تعملان مع تفعيل الحماية ولا تتطلبان أي انتظار.',
     'footer-q':'لا تزال لديك أسئلة؟','footer-sub':'فنيك يسعده المساعدة.',
     'footer-manage':'يمكنك أيضاً إدارة موعدك في أي وقت عبر',
     'footer-credit':'أُعدّ من قِبَل فني Asurion Remote Tech المحلي',
